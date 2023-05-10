@@ -10,13 +10,47 @@
 }
 
 main {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
+  padding: 20px;
+}
+
+.game {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game img {
+ width: 400px;
+}
+
+.game div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game button {
+  width: 200px;
+  height: 60px;
+  margin-top: 30px;
+  margin-left: auto;
+  color: #ffffff;
+  font-size: 20px;
+  background-color : #27AE60;
+  border: 0px solid transparent;
+  border-radius: 8px;
+}
+
+#word {
+  font-size: 50px;
+  font-family: 'Noto Sans';
+  color: #000000;
 }
 
 .letters-container {
-  width: 75%;
-  margin: 0 auto;
+  width: 70%;
+  margin: 60px auto 0 auto;
   height: auto;
   display: flex;
   flex-wrap: wrap;
