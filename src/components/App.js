@@ -14,17 +14,20 @@ import forca6 from '../assets/images/forca6.png';
 import Letras from "./Letras";
 import Jogo from './Jogo';
 
-export default function App() {
-  const hangmanList = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
+import { alphabet } from './Letras';
 
-  const [hangman, setHangman] = useState(hangmanList[0]);
+export const hangmanList = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
+
+export default function App() {
+
   const [errorCount, setCount] = useState(0);
-  const [isDisabled, setDisabled] = useState(false);
+  const [hangman, setHangman] = useState(hangmanList[errorCount]);
+  const [selectedLetters, setSelectedLetters] = useState(alphabet);
 
   return (
     <main>
-      <Jogo hangman={hangman}/>
-      <Letras disabled={isDisabled} setDisabled={setDisabled}/>
+      <Jogo hangman={hangman} selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} setCount={setCount} />
+      <Letras selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} errorCount={errorCount} setCount={setCount} setHangman={setHangman}/>
     </main>
   );
 }
