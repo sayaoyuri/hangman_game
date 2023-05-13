@@ -10,7 +10,7 @@
 }
 
 main {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -40,12 +40,13 @@ main {
   background-color : #27AE60;
   border: 0px solid transparent;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 #word {
   font-size: 50px;
   font-family: 'Noto Sans';
-  /* letter-spacing: 4px; */
+  margin-left: auto;
 }
 
 .playing {
@@ -62,7 +63,7 @@ main {
 }
 
 .letters-container {
-  width: 70%;
+  width: 665px;
   margin: 60px auto 0 auto;
   height: auto;
   display: flex;
@@ -78,8 +79,103 @@ main {
   background-color: #E1ECF4;
   border: 1px solid #7AA7C7;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .letters-container button:disabled {
   background-color: #9FAAB5;
+  cursor: default;
+}
+
+@media (max-width: 1450px) {
+  main{
+    width: 70%;
+  }
+  
+  .game > img {
+    width: 350px;
+  }
+  
+  .game button {
+    width: 180px;
+    height: 55px;
+  }
+}
+
+@media (max-width: 1150px) {
+  main{
+    width: 80%;
+  }
+  
+  .game img {
+    width: 300px;
+  }
+  .game button {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 980px) {
+
+  main {
+    width: 90%;
+  }
+
+  .game img {
+    width: 250px;
+  }
+
+  .game button {
+    margin-top: 15px;
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .letters-container {
+    width: 550px;
+  }
+
+  .letters-container button {
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+  }
+
+}
+
+@media (max-width: 700px) {
+  main {
+    width: 100%;
+  }
+
+  .game img {
+    width: 200px;
+  }
+
+  .game button {
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  #word {
+    font-size: 35px;
+  }
+
+}
+
+@media (max-width: 575px) {
+  .game img {
+    width: 170px;
+  }
+  
+  .letters-container {
+    margin-top: 25px;
+    width: 240px;
+  }
+
+  #word {
+    font-size: 25px;
+  }
 }
