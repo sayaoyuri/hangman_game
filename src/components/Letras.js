@@ -48,7 +48,7 @@ export default function Letras (props) {
       
   return (
     <div className="letters-container">
-      {alphabet.map(letter => <button disabled={selectedLetters.includes(letter) ? true : false} onClick={selectLetter} key={letter} value={letter} data-test='letter'> {letter.toUpperCase()} </button>)}
+      {alphabet.map(letter => <button disabled={selectedLetters.includes(letter) ? true : false} onClick={selectLetter} key={letter} value={letter} data-test="letter"> {letter.toUpperCase()} </button>)}
     </div>
   );
 }

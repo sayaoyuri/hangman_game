@@ -33,10 +33,10 @@ export default function Jogo (props) {
 
   return (
     <div className="game">
-      <img src={hangman} alt="hangman" data-test='game-image'/>
+      <img src={hangman} alt="hangman" data-test="game-image"/>
       <div>
-        <button onClick={startGame} data-test='choose-word'>Escolher Palavra</button>
-        <p id="word" className={gameResult} data-test='word'>{guessedWord}</p>
+        <button onClick={startGame} data-test="choose-word">Escolher Palavra</button>
+        <p id="word" className={gameResult} data-test="word">{guessedWord}</p>
       </div>
     </div>
   );
