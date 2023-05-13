@@ -45,7 +45,20 @@ main {
 #word {
   font-size: 50px;
   font-family: 'Noto Sans';
-  color: #000000;
+  /* letter-spacing: 4px; */
+}
+
+.playing {
+  letter-spacing: 10px;
+}
+
+.won {
+  color: #27AE60;
+  
+}
+
+.lost {
+  color: #FF0000;
 }
 
 .letters-container {

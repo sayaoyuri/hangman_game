@@ -3,31 +3,26 @@ import { useState } from 'react';
 import '../assets/css/reset.css';
 import '../assets/css/style.css';
 
-import forca0 from '../assets/images/forca0.png';
-import forca1 from '../assets/images/forca1.png';
-import forca2 from '../assets/images/forca2.png';
-import forca3 from '../assets/images/forca3.png';
-import forca4 from '../assets/images/forca4.png';
-import forca5 from '../assets/images/forca5.png';
-import forca6 from '../assets/images/forca6.png';
-
 import Letras from "./Letras";
 import Jogo from './Jogo';
 
 import { alphabet } from './Letras';
-
-export const hangmanList = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
+import { hangmanList } from './Jogo';
 
 export default function App() {
-
-  const [errorCount, setCount] = useState(0);
-  const [hangman, setHangman] = useState(hangmanList[errorCount]);
-  const [selectedLetters, setSelectedLetters] = useState(alphabet);
+  const [selectedLetters, setSelectedLetters] = useState(alphabet); // keep track of already guessed letters
+  const [wrongGuesses, setWrongGuess] = useState(0);
+  const [rightGuesses, setRightGuess] = useState(0);
+  const [hangman, setHangman] = useState(hangmanList[wrongGuesses]); // keep track of current hangman image based on the wrong guesses
+  const [gameWord, setGameWord] = useState( []); // starts the game using _ blank spaces to present
+  const [guessedWord, setGuessedWord] = useState(); // displayed as _ on the screen, updated as user right guesses
+  const [gameResult, setGameResult] = useState('playing');
+  console.log(gameWord);
 
   return (
     <main>
-      <Jogo hangman={hangman} selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} setCount={setCount} />
-      <Letras selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} errorCount={errorCount} setCount={setCount} setHangman={setHangman}/>
+      <Jogo hangman={hangman} setHangman={setHangman} selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} setWrongGuess={setWrongGuess} setRightGuess={setRightGuess} gameWord={gameWord} setGameWord={setGameWord} guessedWord={guessedWord} setGuessedWord={setGuessedWord} gameResult={gameResult} setGameResult={setGameResult}/>
+      <Letras gameWord={gameWord} setGameWord={setGameWord} guessedWord={guessedWord} setGuessedWord={setGuessedWord} selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} wrongGuesses={wrongGuesses} setWrongGuess={setWrongGuess} rightGuesses={rightGuesses} setRightGuess={setRightGuess} setGameResult={setGameResult} setHangman={setHangman}/>
     </main>
   );
 }
