@@ -1,7 +1,7 @@
 import { alphabet } from "./Letras";
 
 export default function Chute(props) {
-  const {gameWord, setGuessedWord, guessInput, setGuessInput, setSelectedLetters, setGameResult} = props;
+  const {gameWord, setGuessedWord, guessInput, setGuessInput, guessStatus, setGuessStatus, setSelectedLetters, setGameResult} = props;
 
   function guess() {
     let result;
@@ -9,6 +9,8 @@ export default function Chute(props) {
       result  = gameWord === guessInput.toLowerCase() ? 'won' : 'lost';
     }
     
+    setGuessInput('');
+    setGuessStatus(true);
     setSelectedLetters( [...alphabet] );
     setGuessedWord(gameWord);
     setGameResult(result);
@@ -17,8 +19,8 @@ export default function Chute(props) {
   return (
     <div className="guess-container">
       <label htmlFor="guess">Já sei a palavra!</label>
-      <input onChange={(ev) => setGuessInput(ev.target.value)} type="text" id="guess" value={guessInput} />
-      <button onClick={guess} id="guessBtn">Chutar</button>
+      <input onChange={(ev) => setGuessInput(ev.target.value)} disabled={guessStatus} type="text" id="guess" value={guessInput} />
+      <button onClick={guess} disabled={guessStatus} id="guessBtn">Chutar</button>
     </div>
   );
 }

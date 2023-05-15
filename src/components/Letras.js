@@ -3,7 +3,7 @@ import { hangmanList } from "./Jogo";
 export const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 export default function Letras (props) {
-  const {selectedLetters, setSelectedLetters, gameWord, guessedWord, setGuessedWord, wrongGuesses, setWrongGuess, rightGuesses, setRightGuess, setGameResult, setHangman} = props;
+  const {selectedLetters, setSelectedLetters, gameWord, guessedWord, setGuessedWord, wrongGuesses, setWrongGuess, rightGuesses, setRightGuess, setGuessStatus, setGameResult, setHangman} = props;
 
   function selectLetter (ev) {
     const letter = ev.target.value;
@@ -16,6 +16,7 @@ export default function Letras (props) {
     let wrongCount = wrongGuesses;
     let rightCount = rightGuesses;
     let newGameResult = 'playing'; // initialized as null, cause will be updated if given condition
+    let guessStatus = false;
     
     if(!gameWordArray.includes(letter)) { // wrong guess validation
       wrongCount++;
@@ -23,6 +24,7 @@ export default function Letras (props) {
           newSelectedLetters = [...alphabet];
           newGuessedWord = [...gameWordArray];
           newGameResult = 'lost';
+          guessStatus = true;
         }
       } else {
           for (let i = 0; i < gameWordArray.length; i++) {
@@ -39,6 +41,7 @@ export default function Letras (props) {
         }
       
       setSelectedLetters(newSelectedLetters);
+      setGuessStatus(guessStatus);
       setHangman( hangmanList[wrongCount] );
       setWrongGuess(wrongCount);
       setRightGuess(rightCount);

@@ -11,7 +11,7 @@ import forca6 from '../assets/images/forca6.png';
 export const hangmanList = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
 export default function Jogo (props) {
-  const {hangman, setHangman, gameResult, setGameResult, setSelectedLetters, setWrongGuess, setRightGuess, setGameWord, guessedWord, setGuessedWord} = props;
+  const {hangman, setHangman, gameResult, setGameResult, setSelectedLetters, setWrongGuess, setRightGuess, setGameWord, guessedWord, setGuessedWord, setGuessStatus} = props;
 
   function startGame() { // sets all the states to a 'default'/new 
     const startValue = 0;
@@ -19,6 +19,7 @@ export default function Jogo (props) {
     setWrongGuess( startValue );
     setRightGuess( startValue );
     setHangman( hangmanList[startValue] );
+    setGuessStatus(false);
     setGameResult('playing');
 
     const randomWord = palavras[ (Math.round(Math.random(palavras.length) * 100)) ]; // get random word from word list

@@ -66,6 +66,7 @@ main {
   margin: 60px auto 0 auto;
   height: auto;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -81,7 +82,7 @@ main {
   cursor: pointer;
 }
 
-.letters-container button:disabled {
+.letters-container button:disabled, #guessBtn:disabled {
   background-color: #9FAAB5;
   cursor: default;
 }
