@@ -22,7 +22,7 @@ export default function Jogo (props) {
     setGuessStatus(false);
     setGameResult('playing');
 
-    const randomWord = palavras[ (Math.round(Math.random(palavras.length) * 100)) ]; // get random word from word list
+    const randomWord = palavras[ (Math.round(Math.random() * palavras.length)) ]; // get random word from word list
     setGameWord(randomWord);
 
     const newGuessedWord = [];
