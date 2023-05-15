@@ -35,6 +35,7 @@ export default function Letras (props) {
               if(rightCount === gameWordArray.length) { // victory validation
                 newSelectedLetters = [...alphabet];
                 newGameResult = 'won';
+                guessStatus = true;
               }
             } 
           }

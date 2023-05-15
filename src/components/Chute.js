@@ -19,8 +19,8 @@ export default function Chute(props) {
   return (
     <div className="guess-container">
       <label htmlFor="guess">Já sei a palavra!</label>
-      <input onChange={(ev) => setGuessInput(ev.target.value)} disabled={guessStatus} type="text" id="guess" value={guessInput} />
-      <button onClick={guess} disabled={guessStatus} id="guessBtn">Chutar</button>
+      <input onChange={(ev) => setGuessInput(ev.target.value)} disabled={guessStatus} type="text" id="guess" value={guessInput} data-test="guess-input" />
+      <button onClick={guess} disabled={guessStatus} id="guessBtn" data-test="guess-button">Chutar</button>
     </div>
   );
 }
