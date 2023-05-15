@@ -5,6 +5,7 @@ import '../assets/css/style.css';
 
 import Letras from "./Letras";
 import Jogo from './Jogo';
+import Chute from './Chute';
 
 import { alphabet } from './Letras';
 import { hangmanList } from './Jogo';
@@ -14,15 +15,16 @@ export default function App() {
   const [wrongGuesses, setWrongGuess] = useState(0);
   const [rightGuesses, setRightGuess] = useState(0);
   const [hangman, setHangman] = useState(hangmanList[wrongGuesses]); // keep track of current hangman image based on the wrong guesses
-  const [gameWord, setGameWord] = useState( []); // starts the game using _ blank spaces to present
+  const [gameWord, setGameWord] = useState(); // starts the game using _ blank spaces to present
   const [guessedWord, setGuessedWord] = useState(); // displayed as _ on the screen, updated as user right guesses
   const [gameResult, setGameResult] = useState('playing');
-  console.log(gameWord);
+  const [guessInput, setGuessInput] = useState('');
 
   return (
     <main>
       <Jogo hangman={hangman} setHangman={setHangman} selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} setWrongGuess={setWrongGuess} setRightGuess={setRightGuess} gameWord={gameWord} setGameWord={setGameWord} guessedWord={guessedWord} setGuessedWord={setGuessedWord} gameResult={gameResult} setGameResult={setGameResult}/>
       <Letras gameWord={gameWord} setGameWord={setGameWord} guessedWord={guessedWord} setGuessedWord={setGuessedWord} selectedLetters={selectedLetters} setSelectedLetters={setSelectedLetters} wrongGuesses={wrongGuesses} setWrongGuess={setWrongGuess} rightGuesses={rightGuesses} setRightGuess={setRightGuess} setGameResult={setGameResult} setHangman={setHangman}/>
+      <Chute gameWord={gameWord} setGuessedWord={setGuessedWord} guessInput={guessInput} setGuessInput={setGuessInput} setSelectedLetters={setSelectedLetters} setGameResult={setGameResult} />
     </main>
   );
 }

@@ -55,7 +55,6 @@ main {
 
 .won {
   color: #27AE60;
-  
 }
 
 .lost {
@@ -85,6 +84,34 @@ main {
 .letters-container button:disabled {
   background-color: #9FAAB5;
   cursor: default;
+}
+
+.guess-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px auto;
+}
+
+#guess {
+  width: 35%;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #CCCCCC;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+#guessBtn {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  color: #3C76A1;
+  background-color: #E1ECF4;
+  border: 1px solid #7AA7C7;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 @media (max-width: 1450px) {
@@ -177,5 +204,24 @@ main {
 
   #word {
     font-size: 25px;
+  }
+
+  .guess-container {
+    gap: 7px;
+  }
+
+  .guess-container label {
+    width: 35px;
+    font-size: 10px;
+  }
+
+  #guess {
+    height: 30px;
+  }
+
+  #guessBtn {
+    width: 55px;
+    height: 30px;
+    font-size: 12px;
   }
 }
